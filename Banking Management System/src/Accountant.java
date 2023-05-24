@@ -72,17 +72,9 @@ public class Accountant extends Acc_and_Mang_Abstract{
         Scanner sc=new Scanner(System.in);
         System.out.print("\n Enter your name = ");
         String n2=sc.next();
-        while(!n2.equals(getName())){
-            System.out.print("\nInvalid name !! \nEnter your name = ");
-            n2=sc.next();
-        }
 
         System.out.print("\n Enter your Password = ");
         String pass2=sc.next();
-        while(!pass2.equals(getPassword())){
-            System.out.print("\nInvalid Password !! \n Enter your Password = ");
-            pass2=sc.next();
-        }
 
         System.out.println("Welcome !!!");
     }
@@ -107,6 +99,26 @@ public class Accountant extends Acc_and_Mang_Abstract{
         return Balance;
     }
 
+    public void BillProcess(){
+       Scanner sc=new Scanner(System.in);
+       System.out.println("Enter your name = ");
+       String n3=sc.next();
+       while(!n3.equals(getName())){
+           System.out.println("Invalid name \n Enter a valid registered name = ");
+           n3=sc.next();
+       }
+        System.out.println("Enter your CNIC = ");
+        String id2=sc.next();
+        while(!id2.equals(getCNIC())){
+            System.out.println("Invalid CNIC \n Enter a valid registered CNIC = ");
+            id2=sc.next();
+        }
+        System.out.println("Enter your Bill Number = ");
+        String bill=sc.next();
+        while()
+
+
+    }
 
 
 }

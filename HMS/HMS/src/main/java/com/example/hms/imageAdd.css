@@ -1,0 +1,7 @@
+root {
+
+    -fx-background-image: url('ammar.jpeg');
+    -fx-background-repeat: no-repeat;
+    -fx-background-size: 500 500;
+    -fx-background-position: center center;
+}

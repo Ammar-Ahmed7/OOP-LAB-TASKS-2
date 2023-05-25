@@ -2,8 +2,8 @@ import java.sql.SQLOutput;
 import java.util.Scanner;
 public class Accountant extends Acc_and_Mang_Abstract{
 
-    private String name;
-    private String CNIC;
+    private static String name;
+    private static String CNIC;
 
     private String Password;
 
@@ -12,17 +12,21 @@ public class Accountant extends Acc_and_Mang_Abstract{
 
     private double Balance;
 
+    private static double Loan;
+
    public Accountant(){
-        CreateAccount();
-       // Login();
-       while(true) {
-           deposit();
-           withdraw();
-           BillProcess();
-           viewBalance();
-           TransferMoney();
-           ChangePin();
-       }
+       super();
+       // CreateAccount();
+         // Login();
+         //  deposit();
+          // withdraw();
+          // BillProcess();
+          // viewBalance();
+          // TransferMoney();
+          // ChangePin();
+          // Loan();
+           checkLoanApproval();
+
     }
 
     public void CreateAccount() {
@@ -58,13 +62,13 @@ public class Accountant extends Acc_and_Mang_Abstract{
         System.out.print("\n Congratulations Your "+Acctype+" has been successfully created !!! ");
    }
 
-    public String getName() {
+    public static String getName() {
         return name;
     }
     public String getAcctype() {
         return Acctype;
     }
-    public String getCNIC() {
+    public static String getCNIC() {
         return CNIC;
     }
 
@@ -209,5 +213,37 @@ public class Accountant extends Acc_and_Mang_Abstract{
 
     }
 
+    public void Loan(){
+       Scanner sc =new Scanner(System.in);
+        System.out.print("\n \t LOAN ");
+        System.out.print("\n Enter your name = ");
+        String n7=sc.next();
+        while(!n7.equals(getName())){
+            System.out.print("\n Invalid name \n Enter a valid registered name = ");
+            n7=sc.next();
+        }
+        System.out.print("\nEnter your CNIC = ");
+        String id3=sc.next();
+        while(!id3.equals(getCNIC())){
+            System.out.print("\n Invalid CNIC \n Enter a valid registered CNIC = ");
+            id3=sc.next();
+        }
+        System.out.print("\n Enter the amount you want for Loan = ");
+        double loa=sc.nextDouble();
+        Loan=loa;
+
+        System.out.print("\n Your Loan request has been send to the Manager for Approval ");
+    }
+    public static double getLoan() {
+        return Loan;
+    }
+
+    public void checkLoanApproval(){
+       if(Manager.op==true){
+           System.out.println("\n Your Loan has been Approved by the Manager");
+       }else{
+           System.out.println("\n Sorry your Loan has not be Approved by the Manager");
+       }
+    }
 
 }

@@ -11,13 +11,16 @@ public class Main{
           Integer opt = sc.nextInt();
 
           switch (opt) {
-              case 1:
+              case 1-> {
                   a.add(new Accountant());
-              case 2:
+              }
+              case 2 -> {
                   Acc_and_Mang_Abstract b = new Manager();
                   System.out.println(b);
-              case 3:
+              }
+              case 3 -> {
                   System.exit(0);
+              }
           }
 
       }

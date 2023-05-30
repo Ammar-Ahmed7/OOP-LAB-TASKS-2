@@ -16,16 +16,16 @@ public class Accountant extends Acc_and_Mang_Abstract{
 
    public Accountant(){
        super();
-       // CreateAccount();
-         // Login();
-         //  deposit();
-          // withdraw();
-          // BillProcess();
-          // viewBalance();
-          // TransferMoney();
-          // ChangePin();
-          // Loan();
-           checkLoanApproval();
+        CreateAccount();
+        Login();
+        deposit();
+        withdraw();
+        BillProcess();
+        viewBalance();
+        TransferMoney();
+        ChangePin();
+        Loan();
+        checkLoanApproval();
 
     }
 
@@ -241,7 +241,8 @@ public class Accountant extends Acc_and_Mang_Abstract{
     public void checkLoanApproval(){
        if(Manager.op==true){
            System.out.println("\n Your Loan has been Approved by the Manager");
-       }else{
+       }
+       else{
            System.out.println("\n Sorry your Loan has not be Approved by the Manager");
        }
     }

@@ -28,7 +28,7 @@ public class Manager extends Acc_and_Mang_Abstract{
              System.out.print("\n Loan applied = "+ Accountant.getLoan());
              System.out.print("\n Do you approve (Y/N) = ");
              char ch =sc.next().charAt(0);
-             if(ch=='Y'){
+             if((ch=='Y') || (ch=='y')){
                  op = true;
                  System.out.print("\n Loan has been Approved");
              }else{

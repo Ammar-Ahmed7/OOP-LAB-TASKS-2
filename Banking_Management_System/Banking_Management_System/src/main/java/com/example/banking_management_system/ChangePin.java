@@ -6,13 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class Withdraw {
-
-    @FXML
-    private Label Amount_Label;
-
-    @FXML
-    private TextField Amount_TextField;
+public class ChangePin {
 
     @FXML
     private Label AvailableBalance_Label;
@@ -21,28 +15,22 @@ public class Withdraw {
     private TextField AvailableBalance_TextField;
 
     @FXML
-    private Label NIC_Label;
+    private Button Change_Button;
 
     @FXML
-    private TextField NIC_TextFIeld;
+    private Button Clear_Button;
 
     @FXML
-    private TextField Name;
+    private Label Newpin;
 
     @FXML
-    private Label Name_Label;
+    private TextField Newpin_TextFIeld;
 
     @FXML
-    private Button Search_Button;
+    private Label Oldpin_Label;
 
     @FXML
-    private TextField TotalBalance_TExtfield;
-
-    @FXML
-    private Button Total_Button;
-
-    @FXML
-    private Button Withdraw_Button;
+    private TextField Oldpin_TextField;
 
     @FXML
     private Button back;
@@ -51,12 +39,12 @@ public class Withdraw {
     private Button edit;
 
     @FXML
-    void onTotalButtonClicked(ActionEvent event) {
+    void onChangeButtonClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void onWithdrawButtonClicked(ActionEvent event) {
+    void onClearButtonClicked(ActionEvent event) {
 
     }
 
@@ -67,11 +55,6 @@ public class Withdraw {
 
     @FXML
     void oneditClicked(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onesearchClicked(ActionEvent event) {
 
     }
 

@@ -6,7 +6,13 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class Withdraw {
+public class Transfer {
+
+    @FXML
+    private Label Accountno;
+
+    @FXML
+    private Label Accountno_Label;
 
     @FXML
     private Label Amount_Label;
@@ -19,12 +25,6 @@ public class Withdraw {
 
     @FXML
     private TextField AvailableBalance_TextField;
-
-    @FXML
-    private Label NIC_Label;
-
-    @FXML
-    private TextField NIC_TextFIeld;
 
     @FXML
     private TextField Name;
@@ -42,7 +42,7 @@ public class Withdraw {
     private Button Total_Button;
 
     @FXML
-    private Button Withdraw_Button;
+    private Button Transfer_Button;
 
     @FXML
     private Button back;
@@ -56,7 +56,7 @@ public class Withdraw {
     }
 
     @FXML
-    void onWithdrawButtonClicked(ActionEvent event) {
+    void onTransferButtonClicked(ActionEvent event) {
 
     }
 

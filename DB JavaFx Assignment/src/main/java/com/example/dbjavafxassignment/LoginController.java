@@ -46,12 +46,12 @@ public class LoginController {
         String username = usernameTextField.getText();
         String password = passwordField.getText();
 
-        Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/db_people","root","ammarahmed0347");
+        Connection connection= DriverManager.getConnection("jdbc:mysql://localhost:3306/Test","root","Ammarahmed0347");
 
         Statement statement = connection.createStatement();
 
 
-        String query = "SELECT * FROM people WHERE Username='" + username + "' AND Password='" + password + "'";
+        String query = "SELECT * FROM clients WHERE username='" + username + "' AND password='" + password + "'";
 
         ResultSet resultSet = statement.executeQuery(query);
 

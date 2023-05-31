@@ -48,18 +48,18 @@ public class SignInController {
 
         try{
 
-            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/db_people","root","ammarahmed0347");
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/Test","root","Ammarahmed0347");
 
             Statement statement = connection.createStatement();
 
 
-            ResultSet resultSet = statement.executeQuery("select * from people");
+            ResultSet resultSet = statement.executeQuery("select * from clients");
 
             while(resultSet.next()){
                 System.out.println(resultSet.getString("Username"));
             }
 
-            String sql= "INSERT INTO people(Username,Password) VALUES(?,?)";
+            String sql= "INSERT INTO clients(username,password) VALUES(?,?)";
             PreparedStatement preparedStatement=connection.prepareStatement(sql);
             preparedStatement.setString(1,usernameTextField.getText());
             preparedStatement.setString(2,passwordField.getText());

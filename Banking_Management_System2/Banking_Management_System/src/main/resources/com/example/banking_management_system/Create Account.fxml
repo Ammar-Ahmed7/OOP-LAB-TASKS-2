@@ -12,7 +12,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.banking_management_system.Create_Account">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.banking_management_system.Create_Account">
    <top>
       <AnchorPane prefHeight="77.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
@@ -123,7 +123,7 @@
                   <Font name="Poppins SemiBold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="edit" layoutX="608.0" layoutY="345.0" mnemonicParsing="false" onAction="#oneditClicked" prefHeight="32.0" prefWidth="74.0" style="-fx-background-color: orange;" text="Edit" textFill="WHITE">
+            <Button fx:id="register" layoutX="608.0" layoutY="345.0" mnemonicParsing="false" onAction="#oneRegisterClicked" prefHeight="32.0" prefWidth="88.0" style="-fx-background-color: orange;" text="Register" textFill="WHITE">
                <font>
                   <Font name="Poppins SemiBold" size="14.0" />
                </font>

@@ -138,7 +138,7 @@
                   <Font name="Poppins Medium" size="13.0" />
                </font>
             </TextField>
-            <DatePicker fx:id="Date_Of_Birth" layoutX="182.0" layoutY="106.0" prefHeight="25.0" prefWidth="229.0" style="-fx-background-color: transparent;" />
+            <DatePicker fx:id="DOB" layoutX="182.0" layoutY="106.0" prefHeight="25.0" prefWidth="229.0" style="-fx-background-color: transparent;" />
             <RadioButton fx:id="male" layoutX="181.0" layoutY="233.0" mnemonicParsing="false" text="Male" textFill="WHITE">
                <font>
                   <Font name="Poppins Bold" size="13.0" />

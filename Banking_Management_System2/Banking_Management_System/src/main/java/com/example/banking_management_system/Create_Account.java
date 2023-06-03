@@ -62,20 +62,75 @@ public class Create_Account implements Initializable {
 
     @FXML
     void oneRegisterClicked(ActionEvent event) throws ClassNotFoundException, SQLException {
+
+       /* try{
+
+            Connection connection=DriverManager.getConnection("jdbc:mysql://localhost:3306/Test2","root","Ammarahmed0347");
+
+            Statement statement = connection.createStatement();
+
+
+            ResultSet resultSet = statement.executeQuery("select * from clients");
+
+            while(resultSet.next()){
+                System.out.println(resultSet.getString("name"));
+            }
+
+            String sql= "INSERT INTO clients(name,dob,country) VALUES(?,?,?)";
+            PreparedStatement preparedStatement=connection.prepareStatement(sql);
+            preparedStatement.setString(1,Name.getText());
+            LocalDate localDate = DOB.getValue();
+            Date date = Date.valueOf(localDate);
+            preparedStatement.setDate(2, date);
+            preparedStatement.setString(3,Country.getText());
+            int rowInserted= preparedStatement.executeUpdate();
+           if(rowInserted>0){
+                System.out.println("A new Person has been added successfully"+"  ("+Name.getText()+")");
+            }
+
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch(Exception e){
+            e.printStackTrace();
+        }*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         Connection dataBaselink;
         String databaseUser="root";
-        String databasePassword="zamanlew6732";
-        String url="jdbc:mysql://localhost:3306/registrationpro";
+        String databasePassword="Ammarahmed0347";
+        String url="jdbc:mysql://localhost:3306/Test2";
         Class.forName("com.mysql.cj.jdbc.Driver");
         dataBaselink=DriverManager.getConnection(url,databaseUser,databasePassword);
-        PreparedStatement stat = dataBaselink.prepareStatement("INSERT Into sign_up  (full_name,phone,email,password,dob,gender,qualification,city) values (?,?,?,?,?,?,?,?)");
+        PreparedStatement stat = dataBaselink.prepareStatement("INSERT Into clients  (name,dob,country) values (?,?,?)");
 
         stat.setString(1,Name.getText());
         LocalDate localDate = DOB.getValue();
         Date date = Date.valueOf(localDate);
         stat.setDate(2, date);
         stat.setString(3,Country.getText());
-        ToggleGroup group =new ToggleGroup();
+       /* ToggleGroup group =new ToggleGroup();
         RadioButton male = new RadioButton("Male");
         male.setToggleGroup(group);
         RadioButton female =new RadioButton("Female");
@@ -87,7 +142,7 @@ public class Create_Account implements Initializable {
         stat.setString(8,AccountType.getText());
         stat.setString(9,Ini_Deposit.getText());
         stat.setString(10,Phone_No.getText());
-        stat.setString(11,Address.getText());
+        stat.setString(11,Address.getText());*/
         stat.execute();
         stat.close();
         dataBaselink.close();

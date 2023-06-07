@@ -6,7 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class Deposit {
+public class Withdraw {
 
     @FXML
     private Label Amount_Label;
@@ -19,9 +19,6 @@ public class Deposit {
 
     @FXML
     private TextField AvailableBalance_TextField;
-
-    @FXML
-    private Button Deposit_Button;
 
     @FXML
     private Label NIC_Label;
@@ -45,19 +42,21 @@ public class Deposit {
     private Button Total_Button;
 
     @FXML
+    private Button Withdraw_Button;
+
+    @FXML
     private Button back;
 
     @FXML
     private Button edit;
 
     @FXML
-    void onDepositButtonClicked(ActionEvent event) {
-
+    void onTotalButtonClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void onTotalButtonClicked(ActionEvent event) {
+    void onWithdrawButtonClicked(ActionEvent event) {
 
     }
 

@@ -6,28 +6,31 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class Deposit {
+public class Transfer {
+
+    @FXML
+    private Label Accountno;
+
+    @FXML
+    private Label Accountno_Label;
 
     @FXML
     private Label Amount_Label;
 
     @FXML
+    private Label Amount_Label1;
+
+    @FXML
     private TextField Amount_TextField;
+
+    @FXML
+    private TextField Amount_TextField1;
 
     @FXML
     private Label AvailableBalance_Label;
 
     @FXML
     private TextField AvailableBalance_TextField;
-
-    @FXML
-    private Button Deposit_Button;
-
-    @FXML
-    private Label NIC_Label;
-
-    @FXML
-    private TextField NIC_TextFIeld;
 
     @FXML
     private TextField Name;
@@ -45,16 +48,10 @@ public class Deposit {
     private Button Total_Button;
 
     @FXML
+    private Button Transfer_Button;
+
+    @FXML
     private Button back;
-
-    @FXML
-    private Button edit;
-
-    @FXML
-    void onDepositButtonClicked(ActionEvent event) {
-
-
-    }
 
     @FXML
     void onTotalButtonClicked(ActionEvent event) {
@@ -62,12 +59,12 @@ public class Deposit {
     }
 
     @FXML
-    void onbackClicked(ActionEvent event) {
+    void onTransferButtonClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void oneditClicked(ActionEvent event) {
+    void onbackClicked(ActionEvent event) {
 
     }
 

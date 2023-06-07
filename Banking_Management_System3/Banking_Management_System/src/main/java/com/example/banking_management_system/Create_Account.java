@@ -63,12 +63,13 @@ public class Create_Account implements Initializable {
     @FXML
     void oneRegisterClicked(ActionEvent event) throws ClassNotFoundException, SQLException {
         String databaseUser="root";
-        String databasePassword="zamanlew6732";
+        String databasePassword="Ammarahmed0347";
         String url="jdbc:mysql://localhost:3306/banking_mangement_system";
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con=DriverManager.getConnection(url,databaseUser,databasePassword);
         String sq="INSERT Into clients  (name,DOB,country,gender,nic,pin,accNo,accType,iniDeposit,phone,address) values (?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement stat = con.prepareStatement(sq);
+
         stat.setString(1,Name.getText());
         LocalDate localDate = DOB.getValue();
         Date date = Date.valueOf(localDate);
@@ -93,7 +94,7 @@ public class Create_Account implements Initializable {
         stat.setString(9,Ini_Deposit.getText());
         stat.setString(10,Phone_No.getText());
         stat.setString(11,Address.getText());
-        // prepareStatement
+       // prepareStatement
         stat.executeUpdate();
         stat.close();
         con.close();

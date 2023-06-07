@@ -6,13 +6,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 
-public class Deposit {
-
-    @FXML
-    private Label Amount_Label;
-
-    @FXML
-    private TextField Amount_TextField;
+public class ChangePin {
 
     @FXML
     private Label AvailableBalance_Label;
@@ -21,28 +15,22 @@ public class Deposit {
     private TextField AvailableBalance_TextField;
 
     @FXML
-    private Button Deposit_Button;
+    private Button Change_Button;
 
     @FXML
-    private Label NIC_Label;
+    private Button Clear_Button;
 
     @FXML
-    private TextField NIC_TextFIeld;
+    private Label Newpin;
 
     @FXML
-    private TextField Name;
+    private TextField Newpin_TextFIeld;
 
     @FXML
-    private Label Name_Label;
+    private Label Oldpin_Label;
 
     @FXML
-    private Button Search_Button;
-
-    @FXML
-    private TextField TotalBalance_TExtfield;
-
-    @FXML
-    private Button Total_Button;
+    private TextField Oldpin_TextField;
 
     @FXML
     private Button back;
@@ -51,13 +39,12 @@ public class Deposit {
     private Button edit;
 
     @FXML
-    void onDepositButtonClicked(ActionEvent event) {
-
+    void onChangeButtonClicked(ActionEvent event) {
 
     }
 
     @FXML
-    void onTotalButtonClicked(ActionEvent event) {
+    void onClearButtonClicked(ActionEvent event) {
 
     }
 
@@ -68,11 +55,6 @@ public class Deposit {
 
     @FXML
     void oneditClicked(ActionEvent event) {
-
-    }
-
-    @FXML
-    void onesearchClicked(ActionEvent event) {
 
     }
 

@@ -20,7 +20,13 @@ public class Withdraw {
     private Label Amount_Label;
 
     @FXML
-    private TextField Amount_TextField;
+    private TextField AmountW_TextField;
+    public TextField getAmountW_TextField() {
+        return AmountW_TextField;
+    }
+
+
+
 
     @FXML
     private Label AvailableBalance_Label;
@@ -59,7 +65,6 @@ public class Withdraw {
     public static float currentDeposit;
     public static float amount;
 
-
     @FXML
     void onTotalButtonClicked(ActionEvent event) {
 
@@ -82,7 +87,7 @@ public class Withdraw {
             currentDeposit = Float.parseFloat(resultSet.getString("iniDeposit"));
 
             // Get the amount from the Amount_TextField and perform addition
-            amount = Float.parseFloat(Amount_TextField.getText());
+            amount = Float.parseFloat(AmountW_TextField.getText());
             updatedDeposit = currentDeposit - amount;
             TotalBalance_TExtfield.setText(String.valueOf(updatedDeposit));
 
@@ -100,7 +105,7 @@ public class Withdraw {
             con.close();
 
             // Display a success message or perform any other necessary actions
-            System.out.println("Deposit updated successfully.");
+            System.out.println("Withdraw updated successfully.");
         } else {
             // Handle the case when the name is not found in the database
             System.out.println("Name not found in the database.");

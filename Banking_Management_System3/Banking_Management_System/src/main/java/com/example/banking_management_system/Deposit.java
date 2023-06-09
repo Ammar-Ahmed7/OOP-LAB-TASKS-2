@@ -20,7 +20,11 @@ public class Deposit {
     private Label Amount_Label;
 
     @FXML
-    private TextField Amount_TextField;
+    private TextField Amount_TextField ;
+
+    public TextField getAmount_TextField() {
+        return Amount_TextField;
+    }
 
     @FXML
     private Label AvailableBalance_Label;
@@ -78,6 +82,10 @@ public class Deposit {
              updatedDeposit = currentDeposit + amount;
             TotalBalance_TExtfield.setText(String.valueOf(updatedDeposit));
 
+
+
+
+
             // Update the iniDeposit value in the database
             String updateQuery = "UPDATE clients SET iniDeposit = ? WHERE name = ?";
             PreparedStatement updateStatement = con.prepareStatement(updateQuery);
@@ -93,11 +101,12 @@ public class Deposit {
 
             // Display a success message or perform any other necessary actions
             System.out.println("Deposit updated successfully.");
+
+
         } else {
             // Handle the case when the name is not found in the database
             System.out.println("Name not found in the database.");
         }
-
 
 
     }

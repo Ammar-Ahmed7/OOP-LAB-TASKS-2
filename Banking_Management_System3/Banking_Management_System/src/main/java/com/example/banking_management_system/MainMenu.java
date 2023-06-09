@@ -2,9 +2,16 @@ package com.example.banking_management_system;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+
+import java.io.IOException;
 
 public class MainMenu {
 
@@ -59,43 +66,73 @@ public class MainMenu {
     }
 
     @FXML
-    void onBalanceClicked(ActionEvent event) {
+    void onBalanceClicked(ActionEvent event) throws IOException {
+        Parent root= FXMLLoader.load(getClass().getResource("ViewBalance.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
 
     }
 
     @FXML
-    void onChangepinClicked(ActionEvent event) {
+    void onChangepinClicked(ActionEvent event) throws IOException {
+        Parent root= FXMLLoader.load(getClass().getResource("Change-Pin.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
 
     }
 
     @FXML
-    void onCreateaccountClicked(ActionEvent event) {
+    void onCreateaccountClicked(ActionEvent event) throws IOException {
+        Parent root= FXMLLoader.load(getClass().getResource("Create Account.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
 
     }
 
     @FXML
-    void onCustomerlistClicked(ActionEvent event) {
+    void onCustomerlistClicked(ActionEvent event) throws IOException {
+        Parent root= FXMLLoader.load(getClass().getResource("CustomerList.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
 
     }
 
     @FXML
-    void onDepositClicked(ActionEvent event) {
+    void onDepositClicked(ActionEvent event) throws IOException {
+        Parent root= FXMLLoader.load(getClass().getResource("Deposit.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
 
     }
 
     @FXML
-    void onTransferClicked(ActionEvent event) {
+    void onTransferClicked(ActionEvent event) throws IOException {
+        Parent root= FXMLLoader.load(getClass().getResource("Transfer.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
 
     }
 
     @FXML
-    void onTrasactionClicked(ActionEvent event) {
-
+    void onTrasactionClicked(ActionEvent event) throws IOException {
+        Parent root= FXMLLoader.load(getClass().getResource("TransactionHistory.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
     }
 
     @FXML
-    void onWithdrawClicked(ActionEvent event) {
-
+    void onWithdrawClicked(ActionEvent event) throws IOException {
+        Parent root= FXMLLoader.load(getClass().getResource("withdraw.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
     }
 
     @FXML
@@ -105,11 +142,15 @@ public class MainMenu {
 
     @FXML
     void onexitClicked(ActionEvent event) {
-
+            System.exit(0);
     }
 
     @FXML
-    void seeProfile(ActionEvent event) {
+    void seeProfile(ActionEvent event) throws IOException {
+        Parent root= FXMLLoader.load(getClass().getResource("Profile.fxml"));
+        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
 
     }
 

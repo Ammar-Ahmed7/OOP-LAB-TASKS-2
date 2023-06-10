@@ -60,7 +60,6 @@ public class Deposit {
     public static float currentDeposit;
     public static float amount;
 
-
     @FXML
     void onDepositButtonClicked(ActionEvent event) throws SQLException, ClassNotFoundException {
         String databaseUser = "root";
@@ -103,6 +102,7 @@ public class Deposit {
             System.out.println("Deposit updated successfully.");
 
 
+
         } else {
             // Handle the case when the name is not found in the database
             System.out.println("Name not found in the database.");
@@ -133,6 +133,7 @@ public class Deposit {
         PreparedStatement stat = con.prepareStatement(sq);
         stat.setString(1, n);
         ResultSet resultSet = stat.executeQuery();
+
         while (resultSet.next()) { // Move the cursor to the first row
             String nic = resultSet.getString(1);// Retrieve the data from the first column
             String iniDep = resultSet.getString(2);

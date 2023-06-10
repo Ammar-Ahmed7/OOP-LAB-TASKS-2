@@ -79,11 +79,6 @@ public class TransactionHistory implements Initializable {
                         withdrawvalue
 
 
-
-
-
-
-
                 ));
                 table.setItems(listview);
 

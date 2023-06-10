@@ -134,7 +134,7 @@ public class Deposit {
 
             // Display a success message or perform any other necessary actions
             System.out.println("Deposit updated successfully.");
-            System.out.println(accountNo);
+
 
 
 

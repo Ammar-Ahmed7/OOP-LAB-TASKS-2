@@ -51,22 +51,19 @@ public class TransactionHistory implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        Name_Col.setCellValueFactory(new PropertyValueFactory<>("Name_Col"));
         AccNo_Col.setCellValueFactory(new PropertyValueFactory<>("AccNo_Col"));
         AccType_Col.setCellValueFactory(new PropertyValueFactory<>("AccType_Col"));
-        Name_Col.setCellValueFactory(new PropertyValueFactory<>("Name_Col"));
         Deposit.setCellValueFactory(new PropertyValueFactory<>("Deposit"));
         WithDraw.setCellValueFactory(new PropertyValueFactory<>("WithDraw"));
-        Deposit dep =new Deposit();
-        Withdraw with =new Withdraw();
-        String depositvalue= String.valueOf(dep.getAmount_TextField());
-        String withdrawvalue = String.valueOf(with.getAmountW_TextField());
 
 
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banking_mangement_system","root","Ammarahmed0347");
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("select name,accNo,accType from clients");
+            ResultSet resultSet = statement.executeQuery("SELECT clients.name, clients.accNo, clients.accType, transaction_list.deposit, transaction_list.withdraw FROM clients INNER JOIN transaction_list ON clients.accNo = transaction_list.accNo");
+
 
 
 
@@ -75,8 +72,8 @@ public class TransactionHistory implements Initializable {
                         resultSet.getString("name"),
                         resultSet.getString("accNo"),
                         resultSet.getString("accType"),
-                        depositvalue,
-                        withdrawvalue
+                        resultSet.getString("deposit"),
+                        resultSet.getString("withdraw")
 
 
                 ));

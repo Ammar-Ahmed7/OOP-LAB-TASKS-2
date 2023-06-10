@@ -64,6 +64,7 @@ public class Withdraw {
     public static float updatedDeposit;
     public static float currentDeposit;
     public static float amount;
+    public static String accountNo;
 
     @FXML
     void onTotalButtonClicked(ActionEvent event) {
@@ -98,7 +99,37 @@ public class Withdraw {
             updateStatement.setString(2, name);
             updateStatement.executeUpdate();
 
+            String checkQuery = "SELECT * FROM transaction_list WHERE Name = ?";
+            PreparedStatement checkStatement = con.prepareStatement(checkQuery);
+            checkStatement.setString(1, name);
+            ResultSet checkResultSet = checkStatement.executeQuery();
+
+            if (checkResultSet.next()) {
+                // Update the existing record in the transaction_list table
+                String updateTransactionQuery = "UPDATE transaction_list SET withdraw = ? , rem_balance = ? WHERE Name = ?";
+                PreparedStatement updateTransactionStatement = con.prepareStatement(updateTransactionQuery);
+                updateTransactionStatement.setFloat(1, amount);
+                updateTransactionStatement.setFloat(2, updatedDeposit);
+                updateTransactionStatement.setString(3, name);
+                updateTransactionStatement.executeUpdate();
+
+                updateTransactionStatement.close();
+            } else {
+                // Insert a new record in the transaction_list table
+                String insertQuery = "INSERT INTO transaction_list (Name, withdraw,rem_balance,accNo) VALUES (?, ?,?,?)";
+                PreparedStatement insertStatement = con.prepareStatement(insertQuery);
+                insertStatement.setString(1, name);
+                insertStatement.setFloat(2, amount);
+                insertStatement.setFloat(3, updatedDeposit);
+                insertStatement.setString(4, accountNo);
+                insertStatement.executeUpdate();
+
+                insertStatement.close();
+            }
+
             // Close the database connections and resources
+            checkResultSet.close();
+            checkStatement.close();
             updateStatement.close();
             selectStatement.close();
             resultSet.close();

@@ -59,6 +59,7 @@ public class Deposit {
     public static float updatedDeposit;
     public static float currentDeposit;
     public static float amount;
+    public static String accountNo;
 
     @FXML
     void onDepositButtonClicked(ActionEvent event) throws SQLException, ClassNotFoundException {
@@ -68,7 +69,7 @@ public class Deposit {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(url, databaseUser, databasePassword);
         String name = Name.getText();
-        String selectQuery = "SELECT iniDeposit FROM clients WHERE name = ?";
+        String selectQuery = "SELECT iniDeposit, accNo FROM clients WHERE name = ?";
         PreparedStatement selectStatement = con.prepareStatement(selectQuery);
         selectStatement.setString(1, name);
         ResultSet resultSet = selectStatement.executeQuery();
@@ -83,8 +84,6 @@ public class Deposit {
 
 
 
-
-
             // Update the iniDeposit value in the database
             String updateQuery = "UPDATE clients SET iniDeposit = ? WHERE name = ?";
             PreparedStatement updateStatement = con.prepareStatement(updateQuery);
@@ -92,14 +91,50 @@ public class Deposit {
             updateStatement.setString(2, name);
             updateStatement.executeUpdate();
 
+            String checkQuery = "SELECT * FROM transaction_list WHERE Name = ?";
+            PreparedStatement checkStatement = con.prepareStatement(checkQuery);
+            checkStatement.setString(1, name);
+            ResultSet checkResultSet = checkStatement.executeQuery();
+
+            if (checkResultSet.next()) {
+                // Update the existing record in the transaction_list table
+                String updateTransactionQuery = "UPDATE transaction_list SET deposit = ? , rem_balance = ? WHERE Name = ?";
+                PreparedStatement updateTransactionStatement = con.prepareStatement(updateTransactionQuery);
+                updateTransactionStatement.setFloat(1, amount);
+                updateTransactionStatement.setFloat(2, updatedDeposit);
+                updateTransactionStatement.setString(3, name);
+                updateTransactionStatement.executeUpdate();
+
+                updateTransactionStatement.close();
+            } else {
+                // Insert a new record in the transaction_list table
+                String insertQuery = "INSERT INTO transaction_list (Name, deposit,rem_balance,accNo) VALUES (?, ?,?,?)";
+                PreparedStatement insertStatement = con.prepareStatement(insertQuery);
+                insertStatement.setString(1, name);
+                insertStatement.setFloat(2, amount);
+                insertStatement.setFloat(3, updatedDeposit);
+                insertStatement.setString(4, accountNo);
+                insertStatement.executeUpdate();
+
+                insertStatement.close();
+            }
+
             // Close the database connections and resources
+            checkResultSet.close();
+            checkStatement.close();
+
+
+
+
             updateStatement.close();
             selectStatement.close();
             resultSet.close();
             con.close();
 
+
             // Display a success message or perform any other necessary actions
             System.out.println("Deposit updated successfully.");
+            System.out.println(accountNo);
 
 
 

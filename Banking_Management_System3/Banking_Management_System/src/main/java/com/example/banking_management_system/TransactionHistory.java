@@ -71,6 +71,7 @@ public class TransactionHistory implements Initializable {
 
 
 
+
             while(resultSet.next()){
                 listview.add(new TransactionModel(
                         resultSet.getString("name"),

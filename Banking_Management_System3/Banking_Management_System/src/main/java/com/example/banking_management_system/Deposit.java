@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -60,7 +61,7 @@ public class Deposit {
     public static float currentDeposit;
     public static float amount;
     public static String accountNo;
-
+    public static float Tamount = 0;
     @FXML
     void onDepositButtonClicked(ActionEvent event) throws SQLException, ClassNotFoundException {
         String databaseUser = "root";
@@ -82,6 +83,8 @@ public class Deposit {
              updatedDeposit = currentDeposit + amount;
             TotalBalance_TExtfield.setText(String.valueOf(updatedDeposit));
 
+            Tamount = Tamount + amount;
+
 
 
             // Update the iniDeposit value in the database
@@ -102,7 +105,7 @@ public class Deposit {
                 // Update the existing record in the transaction_list table
                 String updateTransactionQuery = "UPDATE transaction_list SET deposit = ? , rem_balance = ?, accNo = ? WHERE Name = ?";
                 PreparedStatement updateTransactionStatement = con.prepareStatement(updateTransactionQuery);
-                updateTransactionStatement.setFloat(1, amount);
+                updateTransactionStatement.setFloat(1, Tamount);
                 updateTransactionStatement.setFloat(2, updatedDeposit);
                 updateTransactionStatement.setString(3, accountNo);
                 updateTransactionStatement.setString(4, name);
@@ -114,7 +117,7 @@ public class Deposit {
                 String insertQuery = "INSERT INTO transaction_list (Name, deposit,rem_balance,accNo) VALUES (?, ?,?,?)";
                 PreparedStatement insertStatement = con.prepareStatement(insertQuery);
                 insertStatement.setString(1, name);
-                insertStatement.setFloat(2, amount);
+                insertStatement.setFloat(2, Tamount);
                 insertStatement.setFloat(3, updatedDeposit);
                 insertStatement.setString(4, accountNo);
                 insertStatement.executeUpdate();
@@ -172,11 +175,18 @@ public class Deposit {
         stat.setString(1, n);
         ResultSet resultSet = stat.executeQuery();
 
-        while (resultSet.next()) { // Move the cursor to the first row
-            String nic = resultSet.getString(1);// Retrieve the data from the first column
-            String iniDep = resultSet.getString(2);
+        if (resultSet.next()) {
+            String nic = resultSet.getString(1);
+            String iniDeposit = resultSet.getString(2);
             NIC_TextFIeld.setText(nic);
-            AvailableBalance_TextField.setText(iniDep);
+            AvailableBalance_TextField.setText(iniDeposit);
+        } else {
+            // Show a dialog box indicating that the name does not exist
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Name Not Found");
+            alert.setContentText("The provided name does not exist in the database.");
+            alert.showAndWait();
         }
     }
 

@@ -6,6 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -126,6 +127,7 @@ public class Transfer {
                 updateNameStatement.setString(2, name);
                 updateNameStatement.executeUpdate();
 
+
                 System.out.println("Transferred Successfully");
             }else{
                 System.out.println("Account No. does not exist");
@@ -159,11 +161,18 @@ public class Transfer {
         stat.setString(1, n);
         ResultSet resultSet = stat.executeQuery();
 
-        while (resultSet.next()) { // Move the cursor to the first row
+        if(resultSet.next()) { // Move the cursor to the first row
             String accountNumber = resultSet.getString(1);// Retrieve the data from the first column
             String balance = resultSet.getString(2);
             Accountno_Label.setText(accountNumber);
             AvailableBalance_TextField.setText(balance);
+        }else {
+            // Show a dialog box indicating that the name does not exist
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Error");
+            alert.setHeaderText("Name Not Found");
+            alert.setContentText("The provided name does not exist in the database.");
+            alert.showAndWait();
         }
     }
 

@@ -65,7 +65,7 @@
                   <Font name="Poppins SemiBold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="Search_Button" layoutX="526.0" layoutY="68.0" mnemonicParsing="false" onAction="#onesearchClicked" prefHeight="32.0" prefWidth="74.0" style="-fx-background-color: orange;" text="Search" textFill="WHITE">
+            <Button fx:id="Search_Button" layoutX="526.0" layoutY="47.0" mnemonicParsing="false" onAction="#onesearchClicked" prefHeight="32.0" prefWidth="74.0" style="-fx-background-color: orange;" text="Search" textFill="WHITE">
                <font>
                   <Font name="Poppins SemiBold" size="14.0" />
                </font>
@@ -85,7 +85,10 @@
                   <Font name="Poppins SemiBold" size="14.0" />
                </font>
             </Button>
-            <Label fx:id="Accountno_Label" layoutX="243.0" layoutY="120.0" prefHeight="17.0" prefWidth="200.0" text="Label" />
+            <Label fx:id="Accountno_Label" layoutX="243.0" layoutY="114.0" prefHeight="17.0" prefWidth="200.0" textFill="WHITE">
+               <font>
+                  <Font name="Poppins SemiBold" size="18.0" />
+               </font></Label>
             <Label fx:id="Accountno" layoutX="47.0" layoutY="111.0" text="Account No." textFill="WHITE">
                <font>
                   <Font name="Poppins Bold" size="24.0" />
@@ -96,7 +99,7 @@
                   <Font name="Poppins SemiBold" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="Amount_TextField1" layoutX="244.0" layoutY="350.0" prefHeight="27.0" prefWidth="230.0" promptText="Account Number " style="-fx-background-color: transparent; -fx-border-color: transparent transparent orange transparent; -fx-text-fill: white;">
+            <TextField fx:id="Accountno_TextField" layoutX="244.0" layoutY="350.0" prefHeight="27.0" prefWidth="230.0" promptText="Account Number " style="-fx-background-color: transparent; -fx-border-color: transparent transparent orange transparent; -fx-text-fill: white;">
                <font>
                   <Font name="Poppins Medium" size="13.0" />
                </font>

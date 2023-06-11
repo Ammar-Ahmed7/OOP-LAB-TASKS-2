@@ -10,11 +10,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.banking_management_system.TransactionHistory">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.banking_management_system.TransactionHistory">
    <top>
       <AnchorPane prefHeight="77.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="552.0" fitWidth="995.0" layoutY="-429.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="552.0" fitWidth="995.0" layoutY="-429.0" pickOnBounds="true">
                <image>
                   <Image url="@5765246_2979327.jpg" />
                </image>
@@ -35,16 +35,18 @@
                   <Font name="Poppins SemiBold" size="14.0" />
                </font>
             </Button>
-            <TableView fx:id="table" layoutX="240.0" layoutY="64.0" prefHeight="253.0" prefWidth="438.0" style="-fx-border-color: white; .column-header-background .filler -fx-background-color: transparent; .corner -fx-background-color: transparent; .column-header-background     -fx-background-color: linear-gradient(to bottom, #1dbbdd44, #93f9b944);     -fx-background-radius: 7px 7px 0px 0px;     -fx-background-insets: 0 11px 0 0;     -fx-padding: 0 0 5px 0; ">
+            <TableView fx:id="table" layoutX="240.0" layoutY="64.0" prefHeight="253.0" prefWidth="525.0" style="-fx-border-color: white;">
                <columns>
                   <TableColumn fx:id="Name_Col" prefWidth="99.0" text="Name" />
                   <TableColumn fx:id="AccNo_Col" prefWidth="88.33331298828125" text="Acc. no" />
                   <TableColumn fx:id="AccType_Col" prefWidth="72.66668701171875" text="Acc. Type" />
                   <TableColumn fx:id="Deposit" prefWidth="89.0" text="Deposit" />
                   <TableColumn fx:id="WithDraw" prefWidth="87.0" text="WithDraw" />
+                  <TableColumn fx:id="Balance" prefWidth="87.0" text="Balance" />
                </columns>
             </TableView>
          </children>
+
       </AnchorPane>
    </left>
 </BorderPane>

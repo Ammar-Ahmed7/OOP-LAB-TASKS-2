@@ -42,6 +42,8 @@ public class TransactionHistory implements Initializable {
 
     @FXML
     private TableColumn<TransactionModel, String> WithDraw;
+    @FXML
+    private TableColumn<TransactionModel, String> Balance;
 
     @FXML
     private Button back;
@@ -56,13 +58,15 @@ public class TransactionHistory implements Initializable {
         AccType_Col.setCellValueFactory(new PropertyValueFactory<>("AccType_Col"));
         Deposit.setCellValueFactory(new PropertyValueFactory<>("Deposit"));
         WithDraw.setCellValueFactory(new PropertyValueFactory<>("WithDraw"));
+        Balance.setCellValueFactory(new PropertyValueFactory<>("Balance"));
+
 
 
 
         try {
             Connection connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/banking_mangement_system","root","Ammarahmed0347");
             Statement statement = connection.createStatement();
-            ResultSet resultSet = statement.executeQuery("SELECT clients.name, clients.accNo, clients.accType, transaction_list.deposit, transaction_list.withdraw FROM clients INNER JOIN transaction_list ON clients.accNo = transaction_list.accNo");
+            ResultSet resultSet = statement.executeQuery("SELECT clients.name, clients.accNo, clients.accType, transaction_list.deposit, transaction_list.withdraw, clients.iniDeposit FROM clients INNER JOIN transaction_list ON clients.accNo = transaction_list.accNo");
 
 
 
@@ -73,7 +77,8 @@ public class TransactionHistory implements Initializable {
                         resultSet.getString("accNo"),
                         resultSet.getString("accType"),
                         resultSet.getString("deposit"),
-                        resultSet.getString("withdraw")
+                        resultSet.getString("withdraw"),
+                        resultSet.getString("iniDeposit")
 
 
                 ));

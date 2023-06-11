@@ -5,7 +5,18 @@ import javafx.scene.control.TextField;
 public class TransactionModel {
     String Name_Col,AccNo_Col,AccType_Col;
 
-    String Deposit,WithDraw;
+    String Deposit;
+    String WithDraw;
+
+    public String getBalance() {
+        return Balance;
+    }
+
+    public void setBalance(String balance) {
+        Balance = balance;
+    }
+
+    String Balance;
 
     public String getDeposit() {
         return Deposit;
@@ -23,12 +34,13 @@ public class TransactionModel {
         WithDraw = withdraw;
     }
 
-    public TransactionModel(String name_Col, String accNo_Col, String accType_Col, String deposit, String withdraw ) {
+    public TransactionModel(String name_Col, String accNo_Col, String accType_Col, String deposit, String withdraw, String balance ) {
         this.Name_Col = name_Col;
         this.AccNo_Col = accNo_Col;
         this.AccType_Col = accType_Col;
         this.Deposit = deposit;
         this.WithDraw = withdraw;
+        this.Balance=balance;
 
     }
 

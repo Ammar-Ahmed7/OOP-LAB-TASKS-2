@@ -81,8 +81,9 @@ public class Create_Account implements Initializable {
         String sq="INSERT Into clients  (name,DOB,country,gender,nic,pin,accNo,accType,iniDeposit,phone,address) values (?,?,?,?,?,?,?,?,?,?,?)";
         PreparedStatement stat = con.prepareStatement(sq);
 
-        Deposit.accountNo=AccountNo.getText();
-        Withdraw.accountNo=AccountNo.getText();
+       // Deposit.accountNo=AccountNo.getText();
+       // Withdraw.accountNo=AccountNo.getText();
+
         stat.setString(1,Name.getText());
         LocalDate localDate = DOB.getValue();
         Date date = Date.valueOf(localDate);

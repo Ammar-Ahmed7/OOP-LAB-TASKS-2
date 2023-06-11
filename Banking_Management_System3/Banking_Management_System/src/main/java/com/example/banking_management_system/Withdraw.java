@@ -79,14 +79,14 @@ public class Withdraw {
         Class.forName("com.mysql.cj.jdbc.Driver");
         Connection con = DriverManager.getConnection(url, databaseUser, databasePassword);
         String name = Name.getText();
-        String selectQuery = "SELECT iniDeposit FROM clients WHERE name = ?";
+        String selectQuery = "SELECT iniDeposit,accNo FROM clients WHERE name = ?";
         PreparedStatement selectStatement = con.prepareStatement(selectQuery);
         selectStatement.setString(1, name);
         ResultSet resultSet = selectStatement.executeQuery();
 
         if (resultSet.next()) {
             currentDeposit = Float.parseFloat(resultSet.getString("iniDeposit"));
-
+            accountNo = resultSet.getString("accNo");
             // Get the amount from the Amount_TextField and perform addition
             amount = Float.parseFloat(AmountW_TextField.getText());
             updatedDeposit = currentDeposit - amount;
@@ -106,11 +106,12 @@ public class Withdraw {
 
             if (checkResultSet.next()) {
                 // Update the existing record in the transaction_list table
-                String updateTransactionQuery = "UPDATE transaction_list SET withdraw = ? , rem_balance = ? WHERE Name = ?";
+                String updateTransactionQuery = "UPDATE transaction_list SET withdraw = ? , rem_balance = ?, accNo = ? WHERE Name = ?";
                 PreparedStatement updateTransactionStatement = con.prepareStatement(updateTransactionQuery);
                 updateTransactionStatement.setFloat(1, amount);
                 updateTransactionStatement.setFloat(2, updatedDeposit);
-                updateTransactionStatement.setString(3, name);
+                updateTransactionStatement.setString(3, accountNo);
+                updateTransactionStatement.setString(4, name);
                 updateTransactionStatement.executeUpdate();
 
                 updateTransactionStatement.close();

@@ -76,7 +76,7 @@ public class Deposit {
 
         if (resultSet.next()) {
              currentDeposit = Float.parseFloat(resultSet.getString("iniDeposit"));
-
+             accountNo = resultSet.getString("accNo");
             // Get the amount from the Amount_TextField and perform addition
              amount = Float.parseFloat(Amount_TextField.getText());
              updatedDeposit = currentDeposit + amount;
@@ -89,7 +89,9 @@ public class Deposit {
             PreparedStatement updateStatement = con.prepareStatement(updateQuery);
             updateStatement.setFloat(1, updatedDeposit);
             updateStatement.setString(2, name);
+
             updateStatement.executeUpdate();
+
 
             String checkQuery = "SELECT * FROM transaction_list WHERE Name = ?";
             PreparedStatement checkStatement = con.prepareStatement(checkQuery);
@@ -98,11 +100,12 @@ public class Deposit {
 
             if (checkResultSet.next()) {
                 // Update the existing record in the transaction_list table
-                String updateTransactionQuery = "UPDATE transaction_list SET deposit = ? , rem_balance = ? WHERE Name = ?";
+                String updateTransactionQuery = "UPDATE transaction_list SET deposit = ? , rem_balance = ?, accNo = ? WHERE Name = ?";
                 PreparedStatement updateTransactionStatement = con.prepareStatement(updateTransactionQuery);
                 updateTransactionStatement.setFloat(1, amount);
                 updateTransactionStatement.setFloat(2, updatedDeposit);
-                updateTransactionStatement.setString(3, name);
+                updateTransactionStatement.setString(3, accountNo);
+                updateTransactionStatement.setString(4, name);
                 updateTransactionStatement.executeUpdate();
 
                 updateTransactionStatement.close();

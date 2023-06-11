@@ -80,21 +80,21 @@
                   <Font name="Poppins SemiBold" size="14.0" />
                </font>
             </Button>
-            <TextField fx:id="TotalBalance_TExtfield" layoutX="473.0" layoutY="242.0" prefHeight="27.0" prefWidth="230.0" promptText="Total Balance" style="-fx-background-color: transparent; -fx-border-color: transparent transparent orange transparent; -fx-text-fill: white;">
+            <TextField fx:id="TotalBalance_TExtfield" layoutX="181.0" layoutY="375.0" prefHeight="27.0" prefWidth="230.0" promptText="Total Balance" style="-fx-background-color: transparent; -fx-border-color: transparent transparent orange transparent; -fx-text-fill: white;">
                <font>
                   <Font name="Poppins Medium" size="13.0" />
                </font>
             </TextField>
-            <Button fx:id="Total_Button" layoutX="727.0" layoutY="254.0" mnemonicParsing="false" onAction="#onTotalButtonClicked" prefHeight="32.0" prefWidth="74.0" style="-fx-background-color: orange;" text="Total" textFill="WHITE">
+            <Button fx:id="Deposit_Button" layoutX="473.0" layoutY="374.0" mnemonicParsing="false" onAction="#onDepositButtonClicked" prefHeight="32.0" prefWidth="74.0" style="-fx-background-color: orange;" text="Deposit" textFill="WHITE">
                <font>
                   <Font name="Poppins SemiBold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="Deposit_Button" layoutX="548.0" layoutY="294.0" mnemonicParsing="false" onAction="#onDepositButtonClicked" prefHeight="32.0" prefWidth="74.0" style="-fx-background-color: orange;" text="Deposit" textFill="WHITE">
+            <Label fx:id="Amount_Label1" layoutX="131.0" layoutY="316.0" text="Total Amount After Deposit" textFill="WHITE">
                <font>
-                  <Font name="Poppins SemiBold" size="14.0" />
+                  <Font name="Poppins SemiBold" size="24.0" />
                </font>
-            </Button>
+            </Label>
          </children>
       </AnchorPane>
    </bottom>

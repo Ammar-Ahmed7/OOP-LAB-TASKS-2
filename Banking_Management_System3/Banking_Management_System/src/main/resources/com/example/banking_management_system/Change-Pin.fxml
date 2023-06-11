@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.banking_management_system.ChangePin">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="550.0" prefWidth="900.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.banking_management_system.ChangePin">
    <top>
       <AnchorPane prefHeight="77.0" prefWidth="900.0" BorderPane.alignment="CENTER">
          <children>
@@ -30,32 +30,32 @@
    <bottom>
       <AnchorPane prefHeight="431.0" prefWidth="900.0" style="-fx-background-color: #27294f;" BorderPane.alignment="CENTER">
          <children>
-            <Label fx:id="Oldpin_Label" layoutX="130.0" layoutY="49.0" text="Enter Old PIN" textFill="WHITE">
+            <Label fx:id="Oldpin_Label" layoutX="130.0" layoutY="103.0" text="Old PIN" textFill="WHITE">
                <font>
                   <Font name="Poppins SemiBold" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="Oldpin_TextField" layoutX="364.0" layoutY="52.0" prefHeight="27.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent orange transparent; -fx-text-fill: white;">
+            <TextField fx:id="Oldpin_TextField" layoutX="364.0" layoutY="106.0" prefHeight="27.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent orange transparent; -fx-text-fill: white;">
                <font>
                   <Font name="Poppins Medium" size="13.0" />
                </font>
             </TextField>
-            <Label fx:id="Newpin" layoutX="130.0" layoutY="111.0" text="Enter New PIN" textFill="WHITE">
+            <Label fx:id="Newpin" layoutX="130.0" layoutY="157.0" text="Enter New PIN" textFill="WHITE">
                <font>
                   <Font name="Poppins SemiBold" size="24.0" />
                </font>
             </Label>
-            <Label fx:id="AvailableBalance_Label" layoutX="130.0" layoutY="173.0" text="Confirm New PIN" textFill="WHITE">
+            <Label fx:id="AvailableBalance_Label" layoutX="130.0" layoutY="214.0" text="Confirm New PIN" textFill="WHITE">
                <font>
                   <Font name="Poppins SemiBold" size="24.0" />
                </font>
             </Label>
-            <TextField fx:id="Newpin_TextFIeld" layoutX="364.0" layoutY="114.0" prefHeight="27.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent orange transparent; -fx-text-fill: white;">
+            <TextField fx:id="Newpin_TextFIeld" layoutX="364.0" layoutY="160.0" prefHeight="27.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent orange transparent; -fx-text-fill: white;">
                <font>
                   <Font name="Poppins Medium" size="13.0" />
                </font>
             </TextField>
-            <TextField fx:id="AvailableBalance_TextField" layoutX="364.0" layoutY="176.0" prefHeight="27.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent orange transparent; -fx-text-fill: white;">
+            <TextField fx:id="CNewPin_TextField" layoutX="364.0" layoutY="217.0" prefHeight="27.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent orange transparent; -fx-text-fill: white;">
                <font>
                   <Font name="Poppins Medium" size="13.0" />
                </font>
@@ -65,12 +65,27 @@
                   <Font name="Poppins SemiBold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="Clear_Button" layoutX="518.0" layoutY="270.0" mnemonicParsing="false" onAction="#onClearButtonClicked" prefHeight="32.0" prefWidth="74.0" style="-fx-background-color: orange;" text="Clear" textFill="WHITE">
+            <Button fx:id="Clear_Button" layoutX="520.0" layoutY="302.0" mnemonicParsing="false" onAction="#onClearButtonClicked" prefHeight="32.0" prefWidth="74.0" style="-fx-background-color: orange;" text="Clear" textFill="WHITE">
                <font>
                   <Font name="Poppins SemiBold" size="14.0" />
                </font>
             </Button>
-            <Button fx:id="Change_Button" layoutX="365.0" layoutY="270.0" mnemonicParsing="false" onAction="#onChangeButtonClicked" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: orange;" text="Change" textFill="WHITE">
+            <Button fx:id="Change_Button" layoutX="364.0" layoutY="302.0" mnemonicParsing="false" onAction="#onChangeButtonClicked" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: orange;" text="Change" textFill="WHITE">
+               <font>
+                  <Font name="Poppins SemiBold" size="14.0" />
+               </font>
+            </Button>
+            <Label fx:id="name_Label" layoutX="130.0" layoutY="49.0" text="Name" textFill="WHITE">
+               <font>
+                  <Font name="Poppins SemiBold" size="24.0" />
+               </font>
+            </Label>
+            <TextField fx:id="name_TextField" layoutX="364.0" layoutY="52.0" prefHeight="27.0" prefWidth="230.0" style="-fx-background-color: transparent; -fx-border-color: transparent transparent orange transparent; -fx-text-fill: white;">
+               <font>
+                  <Font name="Poppins Medium" size="13.0" />
+               </font>
+            </TextField>
+            <Button fx:id="Search_Button" layoutX="660.0" layoutY="51.0" mnemonicParsing="false" onAction="#onSearchButtonClicked" prefHeight="32.0" prefWidth="92.0" style="-fx-background-color: orange;" text="Search" textFill="WHITE">
                <font>
                   <Font name="Poppins SemiBold" size="14.0" />
                </font>
